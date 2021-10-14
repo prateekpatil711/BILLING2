@@ -1,0 +1,25 @@
+<div class="billdata">
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th>INVOICE N0</th>
+          <th>GST NO</th>
+          <th>BUYER</th>
+          <th>CITY OF SUPPLY</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let inv of invoiceList">
+            <td>{{inv.id}}</td>
+            <td>{{inv.gstno}}</td>
+            <td>{{inv.buyer}}</td>
+            <td>{{inv.citysupply}}</td>
+            <td><button (click)="onDelete(inv.id)" class="btn btn-danger">Delete</button></td>
+            <td><button (click)="onModify(inv)" class="btn btn-warning">Modify</button></td>
+            <td><button (click)="onPreview(inv.id)" class="btn btn-warning"></button></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+

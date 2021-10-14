@@ -1,0 +1,27 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.row{
+    margin: 10px;
+}
+
+.container{
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.884);
+    border-radius: 5px;
+}
+
+.text1 h1 b{
+    font-family: 'Stardos Stencil', cursive;
+    font-size: 76px;
+    color: red;
+}
+
+.text1 h1,h3{
+    text-align: center;
+    font-weight: 600;
+    color: antiquewhite;
+    font-family: 'Roboto', sans-serif;
+}

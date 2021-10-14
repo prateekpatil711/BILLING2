@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="view=='billing'" (click)="onClick('billing')" href="#">GENERATE</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="view=='invoice'" (click)="onClick('invoice')" href="#">INVOICE</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="view=='list'" (click)="onClick('list')" href="#">LIST OF INVOICE</a>
+      </li>
+    </ul>
+  </nav>
+
+
+<div [ngSwitch]='view'>
+    <div *ngSwitchCase="'billing'">
+        <app-detailentry></app-detailentry>
+    </div>
+    <div *ngSwitchCase="'invoice'">
+        <app-invoicedetail></app-invoicedetail>
+    </div>
+    <div *ngSwitchCase="'list'">
+
+    </div>
+</div>
+

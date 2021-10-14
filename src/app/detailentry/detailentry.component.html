@@ -1,0 +1,132 @@
+<div class="container">
+    <div class="row text1" >
+        <div class="col-sm" style="padding: 10px;"><h1><b>S</b>hakambhari  <b>U</b>dyog</h1></div>
+    </div>
+    <form #formdata="ngForm">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3">
+                <div class="label"><h5><b>Invoice Number :</b></h5></div>
+            </div>
+            <div class="col-sm-3"><div><input required class="form-control" type="text" [(ngModel)]="billing.id" name="id" id="id"></div></div>
+            <div class="col-sm-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="label"><h5><b>buyer  :</b></h5></div>
+            </div>
+            <div class="col-sm-3"><div><input required class="form-control" type="text" [(ngModel)]="billing.buyer" name="buyer" id="buyer"></div></div>
+            <div class="col-sm-3"><div class="label"><h5><b>place of supply :</b></h5></div></div>
+            <div class="col-sm-3"><div><input required class="form-control" type="text" [(ngModel)]="billing.citysupply" name="citysupply" id="citysupply"></div></div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-3"><div class="label"><h5><b>buyer GSTIN  :</b></h5></div></div>
+            <div class="col-sm-3"><div><input required class="form-control" type="text" [(ngModel)]="billing.gstno" name="gstno" id="gstno"></div></div>
+            <div class="col-sm-3"><div class="label"><h5><b>distance :</b></h5></div></div>
+            <div class="col-sm-3"><div><input required class="form-control" type="text" [(ngModel)]="billing.dist" name="dist" id="dist"></div></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3"><div class="label"><h5><b>date of order  :</b></h5></div></div>
+            <div class="col-sm-3"><div><input required class="form-control" type="text" [(ngModel)]="billing.doo" name="doo" id="doo"></div></div>
+            <div class="col-sm-3"><div class="label"><h5><b>pincode :</b></h5></div></div>
+            <div class="col-sm-3"><div><input required class="form-control" type="text" [(ngModel)]="billing.pincode" name="pincode" id="pincode"></div></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3"><div class="label"><h5><b>date of supply  :</b></h5></div></div>
+            <div class="col-sm-3"><div><input required class="form-control" type="text" [(ngModel)]="billing.dod" name="dod" id="dod"></div></div>
+            <div class="col-sm-3"><div class="label"><h5><b>vehicle number :</b></h5></div></div>
+            <div class="col-sm-3"><div><input required class="form-control" type="text" [(ngModel)]="billing.vehicleno" name="vehicleno" id="vehicleno"></div></div>
+        </div>
+        <div class="row act">
+            <div class="col-sm-6" ></div>
+            <div class="col-sm-6">
+                <button class="btn btn-info but" (click)="onSubmit(formdata)"> SUBMIT </button>
+            </div>
+        </div>
+    </form>
+
+
+        <div class="billdata" style="margin-top: 50px;">
+            <table class="table table-dark table-striped">
+              <thead>
+                <tr>
+                  <th>SL NO</th>
+                  <th>PRODUCT</th>
+                  <th>HSN CODE</th>
+                  <th>GST</th>
+                  <th>NOS / SET</th>
+                  <th>QUANTITY</th>
+                  <th>RATE</th>
+                  <th>AMOUNT</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let pro of productList">
+                  <td>{{pro.slno}}</td>
+                  <td>{{pro.prod}}</td>
+                  <td>{{pro.hsn}}</td>
+                  <td>{{pro.gst}}</td>
+                  <td>{{pro.nosset}}</td>
+                  <td>{{pro.quantity}}</td>
+                  <td>{{pro.rate}}</td>
+                  <td>{{pro.amount}}</td>
+                  <td><button (click)="onDeleteProd(pro.slno)" class="btn btn-danger">Delete</button></td>
+                  <td><button (click)="onModifyProd(pro)" class="btn btn-warning">Modify</button></td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+        <div class="product">
+            <div><button class="btn btn-info but" style="align-self: center;" (click)="onGetData()">GET PRODUCTS </button></div>
+            <span class="text1" style="text-transform: capitalize;padding: 10px;"><h3><b>Enter product details</b></h3></span>
+            
+
+
+            <form #productdata="ngForm">
+                <div class="row">           
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-4"><div class="label"><h5><b>SLNO  :</b></h5></div></div>
+                    <div class="col-sm-4"><div><input class="form-control" type="text" [(ngModel)]="product.slno" name="slno" id="slno"></div></div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row">           
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-4"><div class="label"><h5><b>description of products :</b></h5></div></div>
+                    <div class="col-sm-4"><div><input class="form-control" type="text" [(ngModel)]="product.prod" name="prod" id="prod"> </div>
+                </div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row">             
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-2"><div class="label"><h5><b>HSN code :</b></h5></div></div>
+                    <div class="col-sm-2"><div><input  class="form-control" type="text" [(ngModel)]="product.hsn" name="hsn" id="hsn"></div></div>
+                    <div class="col-sm-2"><div class="label"><h5><b>NOS / SET :</b></h5></div></div>
+                    <div class="col-sm-2"><div><input  class="form-control" type="text" [(ngModel)]="product.nosset" name="nosset" id="nosset"></div></div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row">       
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-2"><div class="label"><h5><b>GST:</b></h5></div></div>
+                    <div class="col-sm-2"><div><input class="form-control" type="text" [(ngModel)]="product.gst" name="gst" id="gst"></div></div>
+                    <div class="col-sm-2"><div class="label"><h5><b>quantity :</b></h5></div></div>
+                    <div class="col-sm-2"><div><input  class="form-control" type="text"  [(ngModel)]="product.quantity" name="quantity" id="quantity"></div></div>
+                    <div class="col-sm-2"></div>
+                </div>
+                <div class="row">       
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-2"><div class="label"><h5><b>rate :</b></h5></div></div>
+                    <div class="col-sm-2"><div><input   class="form-control" type="text" [(ngModel)]="product.rate" name="rate" id="rate"></div></div>
+                    <div class="col-sm-4"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-3"><button class="btn btn-info but" style="align-self: center;" (click)="onSubmitProd(productdata)"> ADD PRODUCT </button></div>
+                    <div class="col-sm-3"><button class="btn btn-warning but" style="align-self: center;" (click)="onModifySaveProd()"> MODIFY PRODUCT </button></div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </form>
+        </div>
+</div>

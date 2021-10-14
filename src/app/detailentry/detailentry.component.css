@@ -1,0 +1,62 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.row{
+    margin: 10px;
+}
+
+.container{
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.884);
+    border-radius: 5px;
+}
+
+.text1 h1 b{
+    font-family: 'Stardos Stencil', cursive;
+    font-size: 76px;
+    color: red;
+}
+
+.text1 h1,h3{
+    text-align: center;
+    font-weight: 600;
+    color: antiquewhite;
+    font-family: 'Roboto', sans-serif;
+}
+
+form input{
+    border : 2px solid rgb(158, 0, 0);
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.877);
+}
+
+.label{
+    text-align: right;
+    margin: 6px 20px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    text-transform: capitalize;
+    color: azure;
+}
+
+.but{
+    border: 2px solid black;
+    padding: 5px;
+    margin: 30px 20px;
+    height: 45px;
+    width: 200px;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+.product{
+    margin: 50px 10px;
+}
+
+.alert{
+    height: auto;
+    margin: 5px;
+}
